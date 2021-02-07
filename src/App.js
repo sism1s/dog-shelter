@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Switch, Route } from "react-router-dom";
+import Routes from "./Routes";
+import Navbar from "./Navbar";
 import whiskey from "./images/whiskey.jpg";
 import hazel from "./images/hazel.jpg";
 import tubby from "./images/tubby.jpg";
-
 import "./App.css";
 
 class App extends Component {
@@ -42,7 +42,14 @@ class App extends Component {
     ],
   };
   render() {
-    return <Route path="/dogs" render={() => <h1>DOG LIST!</h1>} />;
+    return (
+      <div>
+        <Navbar dogs={this.props.dogs} />
+        <div className="container">
+          <Routes dogs={this.props.dogs} />
+        </div>
+      </div>
+    );
   }
 }
 export default App;
